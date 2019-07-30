@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import Player from '../Player';
-import './Team.css';
+import './InGameList.css';
 
-export class Team extends Component {
-
+export default class InGameList extends Component {
   render() {
 
     const players = this.props.players;
@@ -24,5 +23,3 @@ export class Team extends Component {
     )
   }
 }
-
-export default Team

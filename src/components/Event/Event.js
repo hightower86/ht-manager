@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Row from '../Row';
 import Team from '../Team';
+import InGameList from '../InGameList';
 import './Event.css';
 
 export class Event extends Component {
@@ -18,7 +19,7 @@ export class Event extends Component {
       <h4>Description of Event</h4>
       <Row
         left={<Team players = {this.props.players}/>}
-        right={<Team players = {this.props.players}/> }
+        right={<InGameList players = {this.props.players}/> }
       />
     </div>
     )
