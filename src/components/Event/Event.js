@@ -1,20 +1,26 @@
 import React, { Component } from 'react';
+import Row from '../Row';
+import Team from '../Team';
+import './Event.css';
 
 export class Event extends Component {
+
+  state = {
+    date: 'today',
+    place: 'place',
+    description: 'description'
+  }
+  
   render() {
-    const players = this.props.players;
+    
     return (
-      <div>
-      <h4>Player list</h4>
-      <ul>
-        {
-          players.map(({ id, name }) => {
-            return <li key={id}>  {name}</li>
-          })
-        }
-      </ul>
-        
-      </div>
+    <div className='event'>
+      <h4>Description of Event</h4>
+      <Row
+        left={<Team players = {this.props.players}/>}
+        right={<Team players = {this.props.players}/> }
+      />
+    </div>
     )
   }
 }
