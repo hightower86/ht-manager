@@ -14,8 +14,8 @@ export class Team extends Component {
         {
           players.map(({ id, name }) => {
             return <li 
-                className='list-group-item d-flex justify-content-between align-items-center' 
-                key={id}>  <Player name={name} />
+                className='list-group-item align-items-center' 
+                key={id}>  <Player name={name} onPlus={()=>this.props.onPlus(id)} />
               </li>
           })
         }

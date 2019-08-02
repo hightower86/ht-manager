@@ -15,7 +15,6 @@ export class Player extends Component {
       name: this.props.name
     });
   }
-  
 
   render() {
 
@@ -23,7 +22,9 @@ export class Player extends Component {
 
     return (
       <div className='player'>
-        {name}
+        <span>{name}</span>
+        <button className='btn btn-success btn-sm float-right'
+                onClick={()=>this.props.onPlus()}>+</button>
       </div>
     )
   }
