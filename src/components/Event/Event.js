@@ -10,7 +10,8 @@ export class Event extends Component {
     date: 'today',
     place: 'place',
     description: 'description',
-    inGame:[]
+    inGame:[],
+    totalInGame: 0
   }
 
   onPlus = (id) => {
@@ -29,16 +30,32 @@ export class Event extends Component {
       console.log(newArray);
       return {
         
-        inGame: newArray
+        inGame: newArray,
+        totalInGame: newArray.length
       };
     });
   }
+
+  onDelete = (id) => {
+    this.setState(({ inGame }) =>  {
+      const idx = inGame.findIndex((el) => el.id === id);
+      const newList = [
+        ...inGame.slice(0, idx),
+        ...inGame.slice(idx + 1)
+      ];
+
+      return {
+        inGame: newList,
+        totalInGame: newList.length
+      }
+    })
+  };
   
   render() {
     
     return (
     <div className='event'>
-      <h4>Description of Event</h4>
+      <h4>Description of Event. total players in Game: {this.state.totalInGame}</h4>
       <Row
         left={<Team 
         players = {this.props.players}
@@ -46,6 +63,7 @@ export class Event extends Component {
         />}
         right={<InGameList 
                 players={this.state.inGame}
+                onDelete = {this.onDelete}
                 /> }
       />
     </div>

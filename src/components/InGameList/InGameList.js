@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Player from '../Player';
+import PlayerInGame from '../PlayerInGame';
 import './InGameList.css';
 
 export default class InGameList extends Component {
@@ -13,10 +13,8 @@ export default class InGameList extends Component {
         {
           players.map(({ id, name }) => {
             return <li 
-                className='list-group-item 
-                            d-flex justify-content-between 
-                            align-items-center' 
-                key={id}>  <Player name={name} />
+                className='list-group-item ' 
+                key={id}>  <PlayerInGame onDelete={()=>this.props.onDelete(id)} name={name} />
               </li>
           })
         }
